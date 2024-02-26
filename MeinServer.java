@@ -7,7 +7,7 @@ public class MeinServer extends Server{
 
     @Override
     public void processNewConnection(String pClientIP, int pClientPort) {
-        sendToAll("New Client: " + pClientIP);
+        System.out.println("neue connection: " + pClientIP + ":" + pClientPort);
     }
 
     @Override
