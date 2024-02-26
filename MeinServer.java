@@ -2,12 +2,12 @@
 public class MeinServer extends Server{
     public MeinServer(int pPort) {
         super(pPort);
-
+        System.out.println("Server Initialized");
     }
 
     @Override
     public void processNewConnection(String pClientIP, int pClientPort) {
-        sendToAll("New Client:" + pClientIP);
+        sendToAll("New Client: " + pClientIP);
     }
 
     @Override
