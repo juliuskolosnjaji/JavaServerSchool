@@ -9,6 +9,7 @@ public class Gui {
     boolean ServerStarted = false;
     static MeinServer ChatServer;
     static JLabel LogLabel;
+    static JTextArea LogText;
     static MeinClient ChatClient;
     static JLabel ChatLabel;
     static List<String> meinList;
@@ -32,6 +33,12 @@ public class Gui {
         meinList = new ArrayList<String>();
         LogString = new String();
 
+        LogText = new JTextArea();
+        LogText.setEditable(false);
+        LogText.setLineWrap(true);
+        LogPanel.add(LogText);
+        LogText.setBounds(740, 50, 248, 450);
+
         JButton Button = new JButton("Client");
         JButton ServerStart = new JButton("Server");
         Button.setBounds(870, 30, 100, 40);
@@ -39,10 +46,9 @@ public class Gui {
         Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LogString = LogString + "<html></br>Added Client</html>";
                 System.out.println("Added Client");
+                LogText.append("Added Client\n");
                 ChatClient = new MeinClient("127.0.0.1", 69);
-                LogLabel.setText(LogString);
             }
         });
 
@@ -50,9 +56,7 @@ public class Gui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ChatServer = new MeinServer(69);
-                meinList.add("<html></br>Server started</html>");
-                LogString = LogString + "<html>Server started</br></html>";
-                LogLabel.setText(LogString);
+                LogText.append("Started Server\n");
                 System.out.println("Server Started GUi");
             }
         });
@@ -71,7 +75,7 @@ public class Gui {
             }
         });
 
-        LogPanel.add(LogLabel);
+        //LogPanel.add(LogLabel);
         Chat.add(ChatLabel);
         //Gui.add(LogLabel);
         Gui.add(Button);
