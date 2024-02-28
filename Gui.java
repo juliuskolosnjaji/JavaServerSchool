@@ -23,7 +23,7 @@ public class Gui {
     }
 
     public static void startClient(){
-        ClientThread clientThread = new ClientThread();
+        Gui.clientThread = new ClientThread();
         clientThread.start();
     }
 
@@ -54,9 +54,8 @@ public class Gui {
         startClient.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Added Client");
-                LogText.append("Added Client\n");
                 startClient();
+                LogText.append("Added Client\n");
             }
         });
 
