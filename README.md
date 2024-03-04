@@ -47,11 +47,15 @@ Schaffst du es das sich auch noch mehr Clients einloggen können?
 
 
 ## Specification
-Commands and Descriptions:
+# Chat Server Commands Documentation
 
-HELO [name]
+This README file provides documentation for the commands used in the chat server.
+
+## Commands and Descriptions:
+
+### HELO [name]
 - Client logs in with their name to the server.
-- Possible Responses:
+- **Possible Responses:**
   - 201 OK
   - 202 OK [name]
   - 405 Incorrect username or password
@@ -59,45 +63,45 @@ HELO [name]
   - 501 Server not found
   - 402 Already logged in
 
-QUIT
+### QUIT
 - Client leaves the interaction with the server.
-- Possible Response:
+- **Possible Response:**
   - 203 Goodbye [name]! Nice to have you here.
 
-MSG [name]
+### MSG [name]
 - Client informs the server that they would like to chat with [name], so the server connects them.
-- Possible Response:
+- **Possible Response:**
   - 404 You are alone on the server
 
-MSGALL
+### MSGALL
 - Client informs the server that they would like to chat with everyone, so the server connects them.
 
-PNMSG [name]
+### PNMSG [name]
 - Client informs the server that they would like to privately chat with [name], so the server connects them without reading the conversation.
 
-PNMSGALL
+### PNMSGALL
 - Client informs the server that they would like to privately chat with everyone, so the server connects them without reading the conversations.
 
-ENDPNMSG
+### ENDPNMSG
 - Client informs the server that they want to end the private chat, so the server does so without reading the message.
 
-REG [name]
+### REG [name]
 - Client registers a new name.
 
-SERVERINFO
+### SERVERINFO
 - Server informs the client about IP address and name.
 
-PASSWORD [password]
+### PASSWORD [password]
 - Server demands password from the client.
 
-CHANGENAME [name]
+### CHANGENAME [name]
 - Client changes their name.
 
-CHANGEPASSWORD [password]
+### CHANGEPASSWORD [password]
 - Client changes their password.
 
-SENDEMOJI [int]
+### SENDEMOJI [int]
 - [Description of this command]
 
-TIMESTAMP [getTime]
+### TIMESTAMP [getTime]
 - [Description of this command]
