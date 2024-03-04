@@ -47,26 +47,57 @@ Schaffst du es das sich auch noch mehr Clients einloggen können?
 
 
 ## Specification
-EINGABE		BESCHREIBUNG																	MÖGLICHE ANTWORTEN
+Commands and Descriptions:
 
-HELO [name]  	//Client meldet sich mit seinem Namen beim Server an												201 OK
-																				202 OK [name]
-																				405 Falscher Benutzername oder Passwort 
-																				401 Fehler! [Name] nicht gefunden. Registriere den Namen oder versuche es erneut.
-																				501 Server nicht gefunden
-																				402 Bereits angemledet
-QUIT         	//Client verlässt die Interaktion mit dem Server												203 Auf Wiedersehen [name]! Schön dass du da warst
-																				 
-																				403 Name bereits in Verwendung 
-MSG [name]   	//Client informiert den Server, dass er gerne mit [name] chatten würde, damit der Server sie verbindet						404 Du bist alleine auf dem Server
-MSGALL       	//Client informiert den Server, dass er gerne mit allen chatten würde, damit der Server sie verbindet
-PNMSG [name] 	//Client informiert den Server, dass er gerne mit [name] privat chatten, sodass der Server sie verbindet ohne das Gespräch zu lesen
-PNMSGALL     	//Client informiert den Server, dass er gerne mit allen privat chatten würde, sodass der Server sie verbindet ohne das Gespräche zu lesen
-ENDPNMSG    	//Clinet informiert den Server, dass er den chat beenden will, damit dieser das tut, ohne sich die Nachricht durchzulesen
-REG [name]   	//Client registriert einen neuen Namen
-SERVERINFO 	//Server informiert Client über IP-Adresse und Name
-PASSWORD [password] 	//Server verlangt Passwrd vom Client
-CHANGENAME [name] 	// Client ändert seinen Namen
-CHANGEPASSWORT [passwort] // Client ändert sein Passwort
-SENDEMOJI [int]	//  
+HELO [name]
+- Client logs in with their name to the server.
+- Possible Responses:
+  - 201 OK
+  - 202 OK [name]
+  - 405 Incorrect username or password
+  - 401 Error! [Name] not found. Register the name or try again.
+  - 501 Server not found
+  - 402 Already logged in
+
+QUIT
+- Client leaves the interaction with the server.
+- Possible Response:
+  - 203 Goodbye [name]! Nice to have you here.
+
+MSG [name]
+- Client informs the server that they would like to chat with [name], so the server connects them.
+- Possible Response:
+  - 404 You are alone on the server
+
+MSGALL
+- Client informs the server that they would like to chat with everyone, so the server connects them.
+
+PNMSG [name]
+- Client informs the server that they would like to privately chat with [name], so the server connects them without reading the conversation.
+
+PNMSGALL
+- Client informs the server that they would like to privately chat with everyone, so the server connects them without reading the conversations.
+
+ENDPNMSG
+- Client informs the server that they want to end the private chat, so the server does so without reading the message.
+
+REG [name]
+- Client registers a new name.
+
+SERVERINFO
+- Server informs the client about IP address and name.
+
+PASSWORD [password]
+- Server demands password from the client.
+
+CHANGENAME [name]
+- Client changes their name.
+
+CHANGEPASSWORD [password]
+- Client changes their password.
+
+SENDEMOJI [int]
+- [Description of this command]
+
 TIMESTAMP [getTime]
+- [Description of this command]
