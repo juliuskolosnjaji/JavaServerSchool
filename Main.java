@@ -13,5 +13,7 @@ public class Main {
         if (Objects.equals(input, "Server")){
             MeinServer Server = new MeinServer(69);
         }
+
+        while (true){}
     }
 }

@@ -1,0 +1,29 @@
+EINGABE		BESCHREIBUNG																	MÖGLICHE ANTWORTEN
+
+HELO [name]  	//Client meldet sich mit seinem Namen beim Server an												201 OK
+																				202 OK [name]
+																				405 Falscher Benutzername oder Passwort 
+																				401 Fehler! [Name] nicht gefunden. Registriere den Namen oder versuche es erneut.
+																				501 Server nicht gefunden
+																				402 Bereits angemledet
+QUIT         	//Client verlässt die Interaktion mit dem Server												203 Auf Wiedersehen [name]! Schön dass du da warst
+																				 
+																				403 Name bereits in Verwendung 
+MSG [name]   	//Client informiert den Server, dass er gerne mit [name] chatten würde, damit der Server sie verbindet						404 Du bist alleine auf dem Server
+MSGALL       	//Client informiert den Server, dass er gerne mit allen chatten würde, damit der Server sie verbindet
+PNMSG [name] 	//Client informiert den Server, dass er gerne mit [name] privat chatten, sodass der Server sie verbindet ohne das Gespräch zu lesen
+PNMSGALL     	//Client informiert den Server, dass er gerne mit allen privat chatten würde, sodass der Server sie verbindet ohne das Gespräche zu lesen
+ENDPNMSG    	//Clinet informiert den Server, dass er den chat beenden will, damit dieser das tut, ohne sich die Nachricht durchzulesen
+REG [name]   	//Client registriert einen neuen Namen
+SERVERINFO 	//Server informiert Client über IP-Adresse und Name
+PASSWORD [password] 	//Server verlangt Passwrd vom Client
+CHANGENAME [name] 	// Client ändert seinen Namen
+CHANGEPASSWORT [passwort] // Client ändert sein Passwort
+SENDEMOJI [int]	//  
+TIMESTAMP [getTime]
+
+
+
+
+
+
