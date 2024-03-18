@@ -52,11 +52,13 @@ public class ChatServer extends Server {
                 handleQuit(pClientIP, pClientPort);
                 break;
             case "MSG":
+                handleMsg(pClientIP, pClientPort, parts[1]);
+                /*
                 if (parts.length >= 2) {
                     handleMsg(pClientIP, pClientPort, parts[1]);
                 } else {
                     send(pClientIP, pClientPort, "Invalid command format");
-                }
+                }*/
                 break;
             case "MSGALL":
                 if (parts.length >= 2) {
@@ -117,7 +119,7 @@ public class ChatServer extends Server {
                 String senderName = getUserName(pClientIP, pClientPort);
                 if (senderName != null) {
                     String senderAddress = pClientIP + ":" + pClientPort;
-                    sendMessageToClient(targetAddress, "Message from " + senderName + ": " + message);
+                    sendMessageToClient(targetAddress, "Privatemessage from " + senderName + ": " + message);
                     send(pClientIP, pClientPort, "Message sent to " + targetName);
                 } else {
                     send(pClientIP, pClientPort, "404 Sender not found");
@@ -138,7 +140,7 @@ public class ChatServer extends Server {
         if (parts.length >= 2) { // Ensure there are at least 2 parts (command and message)
             String senderName = getUserName(pClientIP, pClientPort);
             if (senderName != null) {
-                StringBuilder messageBuilder = new StringBuilder("Message from " + senderName + ": ");
+                StringBuilder messageBuilder = new StringBuilder("Message to all from " + senderName + ": ");
                 for (int i = 1; i < parts.length; i++) { // Start from index 1 to include the message
                     messageBuilder.append(parts[i]).append(" ");
                 }

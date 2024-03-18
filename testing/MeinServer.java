@@ -8,6 +8,7 @@ public class MeinServer extends Server{
     @Override
     public void processNewConnection(String pClientIP, int pClientPort) {
         System.out.println("neue connection: " + pClientIP + ":" + pClientPort);
+        sendToAll("New Client: " + pClientIP);
     }
 
     @Override
@@ -21,6 +22,9 @@ public class MeinServer extends Server{
                 sendToAll("User " + parts[1] + "joined.");
                 break;
             case "MSG":
+
+            case "MSGALL":
+                sendToAll("Message from " + pClientIP + ": "+ parts[1]);
             default:
                 break;
         }
